@@ -6,7 +6,7 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
-  Category.findAll({ include: [Product] })
+  Category.findAll()
     .then((records) => {
       console.log("getting all categories", records);
       res.json(records);
@@ -63,7 +63,18 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  
+  Category.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((records) => {
+      console.log("Category - destroy", records);
+      res.json(records);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;
