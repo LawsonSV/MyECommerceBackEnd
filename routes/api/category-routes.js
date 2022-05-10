@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
   Category.findAll({ include: [Product] })
     .then((records) => {
-      console.log("getting all categories", records);
       res.json(records);
     })
     .catch((err) => {
@@ -25,7 +24,6 @@ router.get('/:id', (req, res) => {
     }
   })
     .then((records) => {
-      console.log("getting one category", records);
       res.json(records)
     })
     .catch((err) => {
@@ -37,7 +35,6 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body)
     .then((records) => {
-      console.log("created one category", records);
       res.json(records);
     })
     .catch((err) => {
@@ -53,7 +50,6 @@ router.put('/:id', (req, res) => {
     }
   })
   .then((records) => {
-    console.log("updating category", records);
     res.json(records)
   })
   .catch((err) => {
@@ -69,7 +65,6 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((records) => {
-      console.log("Category - destroy", records);
       res.json(records);
     })
     .catch((err) => {

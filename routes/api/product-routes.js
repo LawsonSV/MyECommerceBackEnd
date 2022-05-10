@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
   // be sure to include its associated Category and Tag data
   Product.findAll({ include: [Category] })
     .then((records) => {
-      console.log("Product - getALL", records);
       res.json(records);
     })
     .catch((err) => {
@@ -29,7 +28,6 @@ router.get('/:id', (req, res) => {
     }
   })
     .then((records) => {
-      console.log("Product - findOne", records);
       res.json(records);
     })
     .catch((err) => {
@@ -119,7 +117,6 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((records) => {
-      console.log("Product - destroy", records);
       res.json(records);
     })
     .catch((err) => {
