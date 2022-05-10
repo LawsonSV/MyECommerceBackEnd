@@ -36,7 +36,6 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
     .then((records) => {
-      console.log("Tag - creatOne", records);
       res.json(records);
     })
     .catch((err) => {
@@ -52,7 +51,6 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((records) => {
-      console.log("Tag - update", records);
       res.json(records);
     })
     .catch((err) => {
@@ -68,7 +66,6 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((records) => {
-      console.log("Tag - destroy", records);
       res.json(records);
     })
     .catch((err) => {
